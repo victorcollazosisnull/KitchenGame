@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class DraggableItems : MonoBehaviour
 {
-    private bool siendoArrastrado = false;
+    public string tipoItem;
     private Vector3 posicionInicial;
-    private BoxItems casillaAsignada;
+    private bool siendoArrastrado = false;
+    private bool estaEnCasilla = false;
+    private CombinationBox casillaActual;
 
     private void Start()
     {
-        posicionInicial = transform.position;
-        casillaAsignada = transform.parent.GetComponent<BoxItems>();
+        posicionInicial = transform.position; 
     }
 
     private void OnMouseDown()
@@ -30,13 +31,54 @@ public class DraggableItems : MonoBehaviour
     {
         siendoArrastrado = false;
 
-        if (casillaAsignada != null && casillaAsignada.EstaEncima(gameObject))
+        if (estaEnCasilla)
         {
-            transform.position = casillaAsignada.transform.position;
+            if (tipoItem == "papa")
+            {
+                // papita en nueva posicion
+                transform.position = casillaActual.transform.position;
+            }
+            else if (tipoItem == "cuchillo")
+            {
+                if (casillaActual.TienePapa())
+                {
+                    //corte a la papita
+                    casillaActual.CortarPapa();
+                }
+                transform.position = posicionInicial;
+            }
         }
         else
         {
             transform.position = posicionInicial;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        CombinationBox casilla = other.GetComponent<CombinationBox>();
+        if (casilla != null)
+        {
+            estaEnCasilla = true;
+            casillaActual = casilla;
+
+            // si eres una papa, te colocas 
+            if (tipoItem == "papa")
+                casilla.SetPapa(gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        CombinationBox casilla = other.GetComponent<CombinationBox>();
+        if (casilla != null && casilla == casillaActual)
+        {
+            estaEnCasilla = false;
+
+            if (tipoItem == "papa")
+                casilla.QuitarPapa();
+
+            casillaActual = null;
         }
     }
 }
