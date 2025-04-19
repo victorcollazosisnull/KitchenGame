@@ -20,7 +20,5 @@ public class AudioClipSO : ScriptableObject
 
         audioSource.Play();
         Destroy(audioObject, audioClip.length);
-
     }
-
 }

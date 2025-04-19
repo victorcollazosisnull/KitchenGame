@@ -10,5 +10,6 @@ public class LoadScene : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+        Debug.Log("Se cerro el juego");
     }
 }
