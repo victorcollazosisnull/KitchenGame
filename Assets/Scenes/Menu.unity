@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 378104607}
   - component: {fileID: 378104606}
   - component: {fileID: 378104605}
+  - component: {fileID: 378104608}
   m_Layer: 5
   m_Name: Jugar
   m_TagString: Untagged
@@ -201,19 +202,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 378104606}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8226782439290143549, guid: 3523759fe26c49741aa0fd700574b072, type: 3}
-        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: ChangeScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Introduccion
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &378104606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,6 +241,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 378104603}
   m_CullTransparentMesh: 1
+--- !u!114 &378104608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378104603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab21aa6969f9d1e498786e0963348623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enlargedScale: {x: 4, y: 4, z: 4}
+  newColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &394898199
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,6 +267,7 @@ GameObject:
   - component: {fileID: 394898203}
   - component: {fileID: 394898202}
   - component: {fileID: 394898201}
+  - component: {fileID: 394898204}
   m_Layer: 5
   m_Name: Ajustes
   m_TagString: Untagged
@@ -373,6 +377,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 394898199}
   m_CullTransparentMesh: 1
+--- !u!114 &394898204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394898199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcf26829e5a42ea4bbf81b3936fef1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enlargedScale: {x: 4, y: 4, z: 4}
+  newColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &513647194
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +675,7 @@ GameObject:
   - component: {fileID: 706976282}
   - component: {fileID: 706976281}
   - component: {fileID: 706976280}
+  - component: {fileID: 706976283}
   m_Layer: 5
   m_Name: Salir
   m_TagString: Untagged
@@ -727,19 +746,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 706976281}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8226782439290143549, guid: 3523759fe26c49741aa0fd700574b072, type: 3}
-        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: QuitGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &706976281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,6 +785,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706976278}
   m_CullTransparentMesh: 1
+--- !u!114 &706976283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706976278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91bf88a958633ef4d95e63b670de0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enlargedScale: {x: 4, y: 4, z: 4}
+  newColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1681191393
 GameObject:
   m_ObjectHideFlags: 0

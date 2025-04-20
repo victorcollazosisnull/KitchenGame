@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9902d7d4e56fe4db4dbadd0757d478, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: 
-  mainMixer: {fileID: 0}
-  masterKey: 
-  musicKey: 
-  sfxKey: 
-  masterVolume: 0
-  musicVolume: 0
-  sfxVolume: 0
-  Sensibility: 0
+  mainMixer: {fileID: 24100000, guid: 276df777518bd1f499461063aebd21bb, type: 2}
+  masterKey: Master
+  musicKey: Music
+  sfxKey: SFX
+  masterVolume: 1
+  musicVolume: 1
+  sfxVolume: 1
