@@ -33,7 +33,7 @@ public class DraggableItems : MonoBehaviour
 
         if (estaEnCasilla)
         {
-            if (tipoItem == "papa" || tipoItem == "cebolla" || tipoItem == "tomate")
+            if (tipoItem == "papa" || tipoItem == "cebolla" || tipoItem == "tomate" || tipoItem == "carne")
             {
                 transform.position = casillaActual.transform.position;
             }
@@ -61,7 +61,7 @@ public class DraggableItems : MonoBehaviour
             estaEnCasilla = true;
             casillaActual = casilla;
 
-            if (tipoItem == "papa" || tipoItem == "cebolla" || tipoItem == "tomate")
+            if (tipoItem == "papa" || tipoItem == "cebolla" || tipoItem == "tomate" || tipoItem == "carne")
             {
                 casilla.SetIngrediente(gameObject, tipoItem);
             }
@@ -75,7 +75,7 @@ public class DraggableItems : MonoBehaviour
         {
             estaEnCasilla = false;
 
-            if (tipoItem == "papa" || tipoItem == "cebolla" || tipoItem == "tomate")
+            if (tipoItem == "papa" || tipoItem == "cebolla" || tipoItem == "tomate" || tipoItem == "carne")
             {
                 casilla.QuitarIngrediente();
             }

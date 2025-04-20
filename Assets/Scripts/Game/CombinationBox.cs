@@ -8,12 +8,14 @@ public class CombinationBox : MonoBehaviour
     public GameObject papaCortada;
     public GameObject cebollaCortada;
     public GameObject tomateCortado;
+    public GameObject carneCortada;
 
     private void Start()
     {
         papaCortada.SetActive(false);
         cebollaCortada.SetActive(false);
         tomateCortado.SetActive(false);
+        carneCortada.SetActive(false);
     }
     public void SetIngrediente(GameObject ingrediente, string tipo)
     {
@@ -54,6 +56,12 @@ public class CombinationBox : MonoBehaviour
             {
                 tomateCortado.SetActive(true);
                 tomateCortado.transform.position = transform.position;
+                Destroy(ingredienteActual);
+            }
+            else if (tipoIngrediente == "carne")
+            {
+                carneCortada.SetActive(true);
+                carneCortada.transform.position= transform.position;
                 Destroy(ingredienteActual);
             }
 
