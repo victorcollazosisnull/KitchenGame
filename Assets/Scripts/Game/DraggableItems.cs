@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DraggableItems : MonoBehaviour
 {
-    public string tipoItem;
+    public string tipoItem; 
     private Vector3 posicionInicial;
     private bool siendoArrastrado = false;
     private bool estaEnCasilla = false;
@@ -10,7 +10,7 @@ public class DraggableItems : MonoBehaviour
 
     private void Start()
     {
-        posicionInicial = transform.position; 
+        posicionInicial = transform.position;
     }
 
     private void OnMouseDown()
@@ -33,18 +33,17 @@ public class DraggableItems : MonoBehaviour
 
         if (estaEnCasilla)
         {
-            if (tipoItem == "papa")
+            if (tipoItem == "papa" || tipoItem == "cebolla" || tipoItem == "tomate")
             {
-                // papita en nueva posicion
                 transform.position = casillaActual.transform.position;
             }
             else if (tipoItem == "cuchillo")
             {
-                if (casillaActual.TienePapa())
+                if (casillaActual.TieneIngrediente())
                 {
-                    //corte a la papita
-                    casillaActual.CortarPapa();
+                    casillaActual.CortarIngrediente();
                 }
+
                 transform.position = posicionInicial;
             }
         }
@@ -62,9 +61,10 @@ public class DraggableItems : MonoBehaviour
             estaEnCasilla = true;
             casillaActual = casilla;
 
-            // si eres una papa, te colocas 
-            if (tipoItem == "papa")
-                casilla.SetPapa(gameObject);
+            if (tipoItem == "papa" || tipoItem == "cebolla" || tipoItem == "tomate")
+            {
+                casilla.SetIngrediente(gameObject, tipoItem);
+            }
         }
     }
 
@@ -75,9 +75,10 @@ public class DraggableItems : MonoBehaviour
         {
             estaEnCasilla = false;
 
-            if (tipoItem == "papa")
-                casilla.QuitarPapa();
-
+            if (tipoItem == "papa" || tipoItem == "cebolla" || tipoItem == "tomate")
+            {
+                casilla.QuitarIngrediente();
+            }
             casillaActual = null;
         }
     }

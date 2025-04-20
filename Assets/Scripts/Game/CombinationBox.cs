@@ -2,32 +2,63 @@ using UnityEngine;
 
 public class CombinationBox : MonoBehaviour
 {
-    private GameObject papaActual;
-    public GameObject papaCortadaPrefab;
+    private GameObject ingredienteActual;
+    private string tipoIngrediente;
 
-    public void SetPapa(GameObject papa)
+    public GameObject papaCortada;
+    public GameObject cebollaCortada;
+    public GameObject tomateCortado;
+
+    private void Start()
     {
-        papaActual = papa;
+        papaCortada.SetActive(false);
+        cebollaCortada.SetActive(false);
+        tomateCortado.SetActive(false);
+    }
+    public void SetIngrediente(GameObject ingrediente, string tipo)
+    {
+        ingredienteActual = ingrediente;
+        tipoIngrediente = tipo;
     }
 
-    public void QuitarPapa()
+    public void QuitarIngrediente()
     {
-        papaActual = null;
+        ingredienteActual = null;
+        tipoIngrediente = null;
     }
 
-    public bool TienePapa()
+    public bool TieneIngrediente()
     {
-        return papaActual != null;
+        return ingredienteActual != null;
     }
 
-    public void CortarPapa()
+    public void CortarIngrediente()
     {
-        if (papaActual != null)
+        if (ingredienteActual != null)
         {
-            Vector3 posicion = transform.position;
-            Destroy(papaActual);
-            Instantiate(papaCortadaPrefab, posicion, Quaternion.identity);
-            papaActual = null;
+            Debug.Log("Cortando: " + tipoIngrediente);
+
+            if (tipoIngrediente == "papa")
+            {
+                papaCortada.SetActive(true);
+                papaCortada.transform.position = transform.position;
+                Destroy(ingredienteActual);
+            }
+            else if (tipoIngrediente == "cebolla")
+            {
+                cebollaCortada.SetActive(true);
+                cebollaCortada.transform.position = transform.position;
+                Destroy(ingredienteActual);
+            }
+            else if (tipoIngrediente == "tomate")
+            {
+                tomateCortado.SetActive(true);
+                tomateCortado.transform.position = transform.position;
+                Destroy(ingredienteActual);
+            }
+
+            ingredienteActual = null;
+            tipoIngrediente = null;
         }
     }
 }
