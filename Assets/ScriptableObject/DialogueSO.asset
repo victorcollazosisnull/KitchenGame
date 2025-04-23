@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415f86d395c9dd54d8d186a8f439756e, type: 3}
   m_Name: DialogueSO
   m_EditorClassIdentifier: 
+  dialogues:
+  - Hola
+  - aea
+  typingSpeed: 0.08
+  waitAfterLine: 1.2

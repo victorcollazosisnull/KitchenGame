@@ -1,6 +1,6 @@
 using UnityEngine;
-using System.Collections;
-public class IntroductionManager : MonoBehaviour
+using TMPro;
+public class IntroductionManager : InitialMovement
 {
-    [SerializeField] private DialogueSO dialogues;
+
 }
