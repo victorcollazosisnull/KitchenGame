@@ -8,6 +8,9 @@ public class DraggableItems : MonoBehaviour
     private bool estaEnCasilla = false;
     private CombinationBox casillaActual;
 
+    private Sarten sartenActual; 
+    //private PlateBox platoActual;
+
     private void Start()
     {
         posicionInicial = transform.position;
@@ -36,6 +39,7 @@ public class DraggableItems : MonoBehaviour
             if (tipoItem == "papa" || tipoItem == "cebolla" || tipoItem == "tomate" || tipoItem == "carne")
             {
                 transform.position = casillaActual.transform.position;
+
             }
             else if (tipoItem == "cuchillo")
             {
@@ -45,6 +49,10 @@ public class DraggableItems : MonoBehaviour
                 }
 
                 transform.position = posicionInicial;
+            }
+            else if (tipoItem == "papaCortada")
+            {
+                // piensa p chato
             }
         }
         else
