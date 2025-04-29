@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class Sarten : MonoBehaviour
 {
-    public GameObject onlySarten;
-    public GameObject sartenPapas;
+    public GameObject sartenConPapas;
+
     private void Start()
     {
-        sartenPapas.SetActive(false);
+        sartenConPapas.SetActive(false);
     }
-    public void ColocarSartenPapas()
+
+    public void CocinarPapaCortada()
     {
-        onlySarten.SetActive(false);
-        sartenPapas.SetActive(true);
+        sartenConPapas.SetActive(true);
+        sartenConPapas.transform.position = transform.position;
+        Destroy(gameObject);
     }
 }

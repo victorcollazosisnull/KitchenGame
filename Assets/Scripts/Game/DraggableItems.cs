@@ -1,3 +1,4 @@
+using NUnit.Framework.Internal.Filters;
 using UnityEngine;
 
 public class DraggableItems : MonoBehaviour
@@ -8,7 +9,8 @@ public class DraggableItems : MonoBehaviour
     private bool estaEnCasilla = false;
     private CombinationBox casillaActual;
 
-    private Sarten sartenActual; 
+    private Sarten sartenActual;
+    private Olla ollaActual;
     //private PlateBox platoActual;
 
     private void Start()
@@ -36,10 +38,9 @@ public class DraggableItems : MonoBehaviour
 
         if (estaEnCasilla)
         {
-            if (tipoItem == "papa" || tipoItem == "cebolla" || tipoItem == "tomate" || tipoItem == "carne")
+            if (tipoItem == "papa" || tipoItem == "cebolla" || tipoItem == "tomate" || tipoItem == "carne" || tipoItem == "papaCortada" || tipoItem == "arroz")
             {
                 transform.position = casillaActual.transform.position;
-
             }
             else if (tipoItem == "cuchillo")
             {
@@ -47,13 +48,18 @@ public class DraggableItems : MonoBehaviour
                 {
                     casillaActual.CortarIngrediente();
                 }
-
                 transform.position = posicionInicial;
             }
-            else if (tipoItem == "papaCortada")
-            {
-                // piensa p chato
-            }
+        }
+        else if (sartenActual != null && tipoItem == "papaCortada")
+        {
+            sartenActual.CocinarPapaCortada(); 
+            Destroy(gameObject);
+        }
+        else if (ollaActual != null && tipoItem == "arroz")
+        {
+            ollaActual.CocinarArroz();
+            Destroy(gameObject);
         }
         else
         {
@@ -66,6 +72,7 @@ public class DraggableItems : MonoBehaviour
         CombinationBox casilla = other.GetComponent<CombinationBox>();
         if (casilla != null)
         {
+            Debug.Log("Entrando a casilla: " + casilla.name);
             estaEnCasilla = true;
             casillaActual = casilla;
 
@@ -74,6 +81,20 @@ public class DraggableItems : MonoBehaviour
                 casilla.SetIngrediente(gameObject, tipoItem);
             }
         }
+
+        Sarten sarten = other.GetComponent<Sarten>();
+        if (sarten != null)
+        {
+            Debug.Log("Entrando a sartén: " + sarten.name);
+            sartenActual = sarten;
+        }
+
+        Olla olla = other.GetComponent<Olla>();
+        if (olla != null)
+        {
+            Debug.Log("Entrando a olla: " + olla.name);
+            ollaActual = olla;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -81,13 +102,24 @@ public class DraggableItems : MonoBehaviour
         CombinationBox casilla = other.GetComponent<CombinationBox>();
         if (casilla != null && casilla == casillaActual)
         {
+            Debug.Log("Saliendo de casilla: " + casilla.name);
             estaEnCasilla = false;
-
-            if (tipoItem == "papa" || tipoItem == "cebolla" || tipoItem == "tomate" || tipoItem == "carne")
-            {
-                casilla.QuitarIngrediente();
-            }
+            casilla.QuitarIngrediente();
             casillaActual = null;
+        }
+
+        Sarten sarten = other.GetComponent<Sarten>();
+        if (sarten != null && sarten == sartenActual)
+        {
+            Debug.Log("Saliendo de sartén: " + sarten.name);
+            sartenActual = null;
+        }
+
+        Olla olla = other.GetComponent<Olla>();
+        if (olla != null && olla == ollaActual)
+        {
+            Debug.Log("Saliendo de olla: " + olla.name);
+            ollaActual = null;
         }
     }
 }
