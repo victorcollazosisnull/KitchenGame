@@ -56,6 +56,11 @@ public class DraggableItems : MonoBehaviour
             sartenActual.CocinarPapaCortada(); 
             Destroy(gameObject);
         }
+        else if (sartenActual != null && tipoItem == "carneCortada")
+        {
+            sartenActual.CocinarCarneCortada();
+            Destroy(gameObject);
+        }
         else if (ollaActual != null && tipoItem == "arroz")
         {
             ollaActual.CocinarArroz();
