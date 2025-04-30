@@ -10,5 +10,7 @@ public enum TipoIngrediente
     PapaCortada,
     CarneCortada,
     Arroz,
-    Cuchillo
+    Cuchillo,
+    CebollaCortada,
+    TomateCortado
 }

@@ -12,6 +12,7 @@ public class DraggableItems : MonoBehaviour
     private CombinationBox casillaActual;
     private Sarten sartenActual;
     private Olla ollaActual;
+    private PlateBox plateBoxActual;
 
     private void Start()
     {
@@ -72,10 +73,18 @@ public class DraggableItems : MonoBehaviour
                 transform.position = posicionInicial;
             }
         }
+        else if (plateBoxActual != null)
+        {
+            plateBoxActual.ColocarEnPlato(data, gameObject);
+        }
         else
         {
             transform.position = posicionInicial;
         }
+    }
+    public Vector3 GetPosicionInicial()
+    {
+        return posicionInicial;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -103,6 +112,10 @@ public class DraggableItems : MonoBehaviour
         {
             ollaActual = olla;
         }
+        if (other.TryGetComponent(out PlateBox plateBox))
+        {
+            plateBoxActual = plateBox;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -122,6 +135,10 @@ public class DraggableItems : MonoBehaviour
         if (other.TryGetComponent(out Olla olla) && olla == ollaActual)
         {
             ollaActual = null;
+        }
+        if (other.TryGetComponent(out PlateBox plateBox) && plateBox == plateBoxActual)
+        {
+            plateBoxActual = null;
         }
     }
 }
