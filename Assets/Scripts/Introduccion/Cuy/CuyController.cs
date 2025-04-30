@@ -1,19 +1,15 @@
-using System;
-using TMPro;
 using UnityEngine;
 
-public class CuyController : Entity
+public class CuyController : EntityMovile
 {
-    [SerializeField] private Transform positionFinsh;
-    [SerializeField] private Transform positionStart;
     [SerializeField] private DialogueSO DialogueSO;
-    private void Start()
-    {
-        StartMovement(positionFinsh.position);
-    }
-    protected override void MarcarLlegada()
+    protected override void Arrive()
     {
         Debug.Log("LLego");
+    }
+    protected override void TermDialogue()
+    {
+
     }
     private void OnDrawGizmos()
     {
