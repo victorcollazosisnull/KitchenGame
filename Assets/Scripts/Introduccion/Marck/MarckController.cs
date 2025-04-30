@@ -2,15 +2,36 @@ using UnityEngine;
 
 public class MarckController : Entity
 {
-    [SerializeField] private CuyController cuy;
-    [SerializeField] private IntroductionManager introductionManager;
-    
-    private void Start()
+    private State stateMarck;
+    private Animator animator;
+    private void Awake()
     {
-        StartDialogue();
+        //animator = GetComponent<Animator>();
     }
-    protected override void TermDialogue()
+    public void StartDialogue(int index)
     {
-        cuy.StartDialogue();
+        //CheckState();
+        StartDialogues(index);
+    }
+    private void CheckState()
+    {
+        switch (stateMarck)
+        {
+            case State.triste:
+                StateAnimation("Triste");
+                break;
+            case State.sorprendido:
+                StateAnimation("Sorprendido");
+                break;
+        }
+    }
+    private void StateAnimation(string state)
+    {
+        animator.SetTrigger(state);
+    }
+    private enum State
+    {
+        triste,
+        sorprendido,
     }
 }

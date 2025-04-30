@@ -7,10 +7,6 @@ public class CuyController : EntityMovile
     {
         Debug.Log("LLego");
     }
-    protected override void TermDialogue()
-    {
-
-    }
     private void OnDrawGizmos()
     {
         

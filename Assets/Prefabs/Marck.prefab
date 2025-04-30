@@ -101,9 +101,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3144190ee6890a41b1cfed9756f705d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: 9d8b3c5821b190f4bbf673969680b590, type: 2}
+  dialogue:
+  - {fileID: 11400000, guid: 9d8b3c5821b190f4bbf673969680b590, type: 2}
   textDialogue: {fileID: 2089213129026729586}
-  cuy: {fileID: 0}
+  Canvas: {fileID: 3542596843973428983}
 --- !u!1 &3542596843973428983
 GameObject:
   m_ObjectHideFlags: 0
