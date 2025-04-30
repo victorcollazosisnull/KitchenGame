@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class DraggableItems : MonoBehaviour
 {
-    public string tipoItem; 
+    public IngredienteData data;
+
     private Vector3 posicionInicial;
     private bool siendoArrastrado = false;
     private bool estaEnCasilla = false;
-    private CombinationBox casillaActual;
 
+    private CombinationBox casillaActual;
     private Sarten sartenActual;
     private Olla ollaActual;
-    //private PlateBox platoActual;
 
     private void Start()
     {
@@ -38,33 +38,39 @@ public class DraggableItems : MonoBehaviour
 
         if (estaEnCasilla)
         {
-            if (tipoItem == "papa" || tipoItem == "cebolla" || tipoItem == "tomate" || tipoItem == "carne" || tipoItem == "papaCortada" || tipoItem == "arroz")
+            if (data.tipo == TipoIngrediente.Cuchillo)
+            {
+                casillaActual.CortarIngrediente();
+                transform.position = posicionInicial;
+            }
+            else
             {
                 transform.position = casillaActual.transform.position;
             }
-            else if (tipoItem == "cuchillo")
+        }
+        else if (sartenActual != null)
+        {
+            if (data.tipo == TipoIngrediente.PapaCortada || data.tipo == TipoIngrediente.CarneCortada)
             {
-                if (casillaActual.TieneIngrediente())
-                {
-                    casillaActual.CortarIngrediente();
-                }
+                sartenActual.Cocinar(data);
+                Destroy(gameObject);
+            }
+            else
+            {
                 transform.position = posicionInicial;
             }
         }
-        else if (sartenActual != null && tipoItem == "papaCortada")
+        else if (ollaActual != null)
         {
-            sartenActual.CocinarPapaCortada(); 
-            Destroy(gameObject);
-        }
-        else if (sartenActual != null && tipoItem == "carneCortada")
-        {
-            sartenActual.CocinarCarneCortada();
-            Destroy(gameObject);
-        }
-        else if (ollaActual != null && tipoItem == "arroz")
-        {
-            ollaActual.CocinarArroz();
-            Destroy(gameObject);
+            if (data.tipo == TipoIngrediente.Arroz)
+            {
+                ollaActual.Cocinar(data);
+                Destroy(gameObject);
+            }
+            else
+            {
+                transform.position = posicionInicial;
+            }
         }
         else
         {
@@ -74,56 +80,47 @@ public class DraggableItems : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        CombinationBox casilla = other.GetComponent<CombinationBox>();
-        if (casilla != null)
+        if (other.TryGetComponent(out CombinationBox casilla))
         {
-            Debug.Log("Entrando a casilla: " + casilla.name);
-            estaEnCasilla = true;
-            casillaActual = casilla;
-
-            if (tipoItem == "papa" || tipoItem == "cebolla" || tipoItem == "tomate" || tipoItem == "carne")
+            if (data.tipo == TipoIngrediente.Cuchillo || !casilla.TieneIngrediente())
             {
-                casilla.SetIngrediente(gameObject, tipoItem);
+                estaEnCasilla = true;
+                casillaActual = casilla;
+
+                if (data.tipo != TipoIngrediente.Cuchillo)
+                {
+                    casilla.SetIngrediente(gameObject, data);
+                }
             }
         }
 
-        Sarten sarten = other.GetComponent<Sarten>();
-        if (sarten != null)
+        if (other.TryGetComponent(out Sarten sarten))
         {
-            Debug.Log("Entrando a sartén: " + sarten.name);
             sartenActual = sarten;
         }
 
-        Olla olla = other.GetComponent<Olla>();
-        if (olla != null)
+        if (other.TryGetComponent(out Olla olla))
         {
-            Debug.Log("Entrando a olla: " + olla.name);
             ollaActual = olla;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        CombinationBox casilla = other.GetComponent<CombinationBox>();
-        if (casilla != null && casilla == casillaActual)
+        if (other.TryGetComponent(out CombinationBox casilla) && casilla == casillaActual)
         {
-            Debug.Log("Saliendo de casilla: " + casilla.name);
             estaEnCasilla = false;
             casilla.QuitarIngrediente();
             casillaActual = null;
         }
 
-        Sarten sarten = other.GetComponent<Sarten>();
-        if (sarten != null && sarten == sartenActual)
+        if (other.TryGetComponent(out Sarten sarten) && sarten == sartenActual)
         {
-            Debug.Log("Saliendo de sartén: " + sarten.name);
             sartenActual = null;
         }
 
-        Olla olla = other.GetComponent<Olla>();
-        if (olla != null && olla == ollaActual)
+        if (other.TryGetComponent(out Olla olla) && olla == ollaActual)
         {
-            Debug.Log("Saliendo de olla: " + olla.name);
             ollaActual = null;
         }
     }

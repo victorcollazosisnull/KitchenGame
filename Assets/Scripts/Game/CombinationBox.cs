@@ -3,30 +3,18 @@ using UnityEngine;
 public class CombinationBox : MonoBehaviour
 {
     private GameObject ingredienteActual;
-    private string tipoIngrediente;
+    private IngredienteData dataIngrediente;
 
-    public GameObject papaCortada;
-    public GameObject cebollaCortada;
-    public GameObject tomateCortado;
-    public GameObject carneCortada;
-
-    private void Start()
-    {
-        papaCortada.SetActive(false);
-        cebollaCortada.SetActive(false);
-        tomateCortado.SetActive(false);
-        carneCortada.SetActive(false);
-    }
-    public void SetIngrediente(GameObject ingrediente, string tipo)
+    public void SetIngrediente(GameObject ingrediente, IngredienteData data)
     {
         ingredienteActual = ingrediente;
-        tipoIngrediente = tipo;
+        dataIngrediente = data;
     }
 
     public void QuitarIngrediente()
     {
         ingredienteActual = null;
-        tipoIngrediente = null;
+        dataIngrediente = null;
     }
 
     public bool TieneIngrediente()
@@ -36,37 +24,13 @@ public class CombinationBox : MonoBehaviour
 
     public void CortarIngrediente()
     {
-        if (ingredienteActual != null)
+        if (ingredienteActual != null && dataIngrediente != null && dataIngrediente.prefabCortado != null)
         {
-            Debug.Log("Cortando: " + tipoIngrediente);
-
-            if (tipoIngrediente == "papa")
-            {
-                papaCortada.SetActive(true);
-                papaCortada.transform.position = transform.position;
-                Destroy(ingredienteActual);
-            }
-            else if (tipoIngrediente == "cebolla")
-            {
-                cebollaCortada.SetActive(true);
-                cebollaCortada.transform.position = transform.position;
-                Destroy(ingredienteActual);
-            }
-            else if (tipoIngrediente == "tomate")
-            {
-                tomateCortado.SetActive(true);
-                tomateCortado.transform.position = transform.position;
-                Destroy(ingredienteActual);
-            }
-            else if (tipoIngrediente == "carne")
-            {
-                carneCortada.SetActive(true);
-                carneCortada.transform.position= transform.position;
-                Destroy(ingredienteActual);
-            }
+            GameObject cortado = Instantiate(dataIngrediente.prefabCortado, transform.position, Quaternion.identity);
+            Destroy(ingredienteActual);
 
             ingredienteActual = null;
-            tipoIngrediente = null;
+            dataIngrediente = null;
         }
     }
 }

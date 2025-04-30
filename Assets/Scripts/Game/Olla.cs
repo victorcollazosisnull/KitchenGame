@@ -2,16 +2,23 @@ using UnityEngine;
 
 public class Olla : MonoBehaviour
 {
-    public GameObject ollaConArroz;
+    public IngredienteData arrozData;
 
     private void Start()
     {
-        ollaConArroz.SetActive(false);
+        if (arrozData.prefabCocinado) arrozData.prefabCocinado.SetActive(false);
     }
-    public void CocinarArroz()
+
+    public void Cocinar(IngredienteData data)
     {
-        ollaConArroz.SetActive(true);
-        ollaConArroz.transform.position = transform.position;
-        Destroy(gameObject);
+        if (data.prefabCocinado != null)
+        {
+            GameObject obj = Instantiate(data.prefabCocinado, transform.position, Quaternion.identity);
+            obj.SetActive(true);
+
+            obj.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+
+            gameObject.SetActive(false);
+        }
     }
 }

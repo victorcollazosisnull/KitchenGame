@@ -2,25 +2,31 @@ using UnityEngine;
 
 public class Sarten : MonoBehaviour
 {
-    public GameObject sartenConPapas;
-    public GameObject sartenConCarne;
+    public IngredienteData papaData;
+    public IngredienteData carneData;
 
     private void Start()
     {
-        sartenConPapas.SetActive(false);
-        sartenConCarne.SetActive(false);
+        if (papaData.prefabCocinado != null)
+        {
+            papaData.prefabCocinado.SetActive(false);
+        }
+        if (carneData.prefabCocinado != null)
+        {
+            carneData.prefabCocinado.SetActive(false);
+        }
     }
 
-    public void CocinarPapaCortada()
+    public void Cocinar(IngredienteData data)
     {
-        sartenConPapas.SetActive(true);
-        sartenConPapas.transform.position = transform.position;
-        Destroy(gameObject);
-    }
-    public void CocinarCarneCortada()
-    {
-        sartenConCarne.SetActive(true);
-        sartenConCarne.transform.position = transform.position;
-        Destroy(gameObject);
+        if (data.prefabCocinado != null)
+        {
+            GameObject obj = Instantiate(data.prefabCocinado, transform.position, Quaternion.identity);
+            obj.SetActive(true);
+
+            obj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f); 
+
+            gameObject.SetActive(false);
+        }
     }
 }
