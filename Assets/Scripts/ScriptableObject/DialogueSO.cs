@@ -4,8 +4,9 @@ using System.Collections;
 using System;
 
 [CreateAssetMenu(fileName = ("DialogueSO"), menuName = ("Scriptable Objects/Dialogues/Dialogue"))]
-public class DialogueSO : ScriptableObject
+abstract public class DialogueSO : ScriptableObject
 {
+    [Header("Dialogue")]
     [SerializeField] private string[] dialogues;
     [SerializeField] private float typingSpeed;
     [SerializeField] private float waitAfterLine;
@@ -16,7 +17,7 @@ public class DialogueSO : ScriptableObject
         waitAfterLine = 1.2f;
     }
 
-    public void StartDialogues(TMP_Text text, MonoBehaviour runner, Action onFinish = null)
+    public virtual void StartDialogues(TMP_Text text, Entity runner, Action onFinish = null)
     {
         runner.StartCoroutine(DialoguesCorritune(text, onFinish));
     }
