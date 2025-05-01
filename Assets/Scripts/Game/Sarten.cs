@@ -5,8 +5,11 @@ public class Sarten : MonoBehaviour
     public IngredienteData papaData;
     public IngredienteData carneData;
 
+    private Vector3 posicionInicial;
     private void Start()
     {
+        posicionInicial = transform.position;
+
         if (papaData.prefabCocinado != null)
         {
             papaData.prefabCocinado.SetActive(false);

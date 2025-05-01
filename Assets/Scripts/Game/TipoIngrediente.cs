@@ -6,11 +6,19 @@ public enum TipoIngrediente
     Papa,
     Cebolla,
     Tomate,
+    AjiAmarillo,
     Carne,
     PapaCortada,
     CarneCortada,
     Arroz,
     Cuchillo,
     CebollaCortada,
-    TomateCortado
+    TomateCortado,
+    AjiAmarilloCortado,
+    Premix,
+    Nage,
+    Salsa,
+    Culantro,
+    CarneCocinada,
+    PapaCocinada
 }

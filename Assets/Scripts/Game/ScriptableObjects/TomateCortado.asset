@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb94e1f184dd8942a808ca03453aa8a, type: 3}
   m_Name: TomateCortado
   m_EditorClassIdentifier: 
-  tipo: 10
+  tipo: 11
   prefabCortado: {fileID: 0}
   prefabCocinado: {fileID: 0}

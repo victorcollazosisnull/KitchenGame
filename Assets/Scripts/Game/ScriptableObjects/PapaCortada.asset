@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb94e1f184dd8942a808ca03453aa8a, type: 3}
   m_Name: PapaCortada
   m_EditorClassIdentifier: 
-  tipo: 5
+  tipo: 6
   prefabCortado: {fileID: 0}
   prefabCocinado: {fileID: 842356992713274228, guid: ec93e96b6ccead14dbcdc0ce62e70420, type: 3}

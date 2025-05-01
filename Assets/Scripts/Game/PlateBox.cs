@@ -9,7 +9,9 @@ public class PlateBox : MonoBehaviour
     public List<TipoIngrediente> ingredientesPermitidos = new List<TipoIngrediente>
     {
         TipoIngrediente.CebollaCortada,
-        TipoIngrediente.TomateCortado
+        TipoIngrediente.TomateCortado,
+        TipoIngrediente.AjiAmarilloCortado,
+        TipoIngrediente.CarneCocinada
         // agregar mas elementos pal lomo
     };
 
@@ -34,10 +36,14 @@ public class PlateBox : MonoBehaviour
 
     private Vector3 GetSiguientePosicion()
     {
-        float offsetX = 0.3f;
-        float offsetY = 0.2f;
+        float radio = 0.3f; 
         int count = ingredientesEnPlato.Count;
+        float angle = 360f / 8f * count; 
 
-        return spawnPoint.position + new Vector3(offsetX * count, -offsetY * count, 0);
+        float radianes = angle * Mathf.Deg2Rad;
+        float x = Mathf.Cos(radianes) * radio;
+        float y = Mathf.Sin(radianes) * radio;
+
+        return spawnPoint.position + new Vector3(x, y, 0);
     }
 }
