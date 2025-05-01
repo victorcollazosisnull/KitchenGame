@@ -1,7 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
-[CreateAssetMenu(fileName = ("DialogueSO"), menuName = ("Scriptable Objects/Dialogues/Dialogue"))]
+[CreateAssetMenu(fileName = ("DialogueSO"), menuName = ("Scriptable Objects/Dialogues/DialogueCuySO"))]
 public class DialogueCuySO : DialogueSO
 {
     [Header("AnimationState")]
@@ -17,6 +17,6 @@ public class DialogueCuySO : DialogueSO
 public enum StateCuy
 {
     Triste,
-
+    Feliz
 }
 
