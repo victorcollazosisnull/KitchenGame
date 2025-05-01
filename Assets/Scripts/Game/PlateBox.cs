@@ -11,7 +11,8 @@ public class PlateBox : MonoBehaviour
         TipoIngrediente.CebollaCortada,
         TipoIngrediente.TomateCortado,
         TipoIngrediente.AjiAmarilloCortado,
-        TipoIngrediente.CarneCocinada
+        TipoIngrediente.CarneEnSarten,
+        TipoIngrediente.PapaEnSarten
         // agregar mas elementos pal lomo
     };
 
@@ -23,15 +24,36 @@ public class PlateBox : MonoBehaviour
             return;
         }
 
-        GameObject visual = Instantiate(originalArrastrado, GetSiguientePosicion(), Quaternion.identity);
-        visual.transform.SetParent(transform);
-        visual.transform.localScale = Vector3.one * 0.4f;
+        if (data.tipo == TipoIngrediente.CarneEnSarten || data.tipo == TipoIngrediente.PapaEnSarten)
+        {
+            Sarten sarten = originalArrastrado.GetComponent<Sarten>();
+            if (sarten != null)
+            {
+                sarten.transform.position = sarten.posicionInicial;
+            }
 
-        Destroy(visual.GetComponent<Collider2D>());
-        Destroy(visual.GetComponent<DraggableItems>());
+            GameObject visual = Instantiate(data.prefabListo, GetSiguientePosicion(), Quaternion.identity);
+            visual.transform.SetParent(transform);
+            visual.transform.localScale = Vector3.one * 0.4f;
 
-        ingredientesEnPlato.Add(visual);
-        Destroy(originalArrastrado); 
+            Destroy(visual.GetComponent<Collider2D>());
+            Destroy(visual.GetComponent<DraggableItems>());
+
+            ingredientesEnPlato.Add(visual);
+            Destroy(originalArrastrado);
+        }
+        else
+        {
+            GameObject visual = Instantiate(originalArrastrado, GetSiguientePosicion(), Quaternion.identity);
+            visual.transform.SetParent(transform);
+            visual.transform.localScale = Vector3.one * 0.4f;
+
+            Destroy(visual.GetComponent<Collider2D>());
+            Destroy(visual.GetComponent<DraggableItems>());
+
+            ingredientesEnPlato.Add(visual);
+            Destroy(originalArrastrado);
+        }
     }
 
     private Vector3 GetSiguientePosicion()

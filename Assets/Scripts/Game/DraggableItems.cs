@@ -56,6 +56,11 @@ public class DraggableItems : MonoBehaviour
                 sartenActual.Cocinar(data);
                 Destroy(gameObject);
             }
+            else if (data.tipo == TipoIngrediente.CarneEnSarten)
+            {
+                sartenActual.Cocinar(data);  
+                Destroy(gameObject);  
+            }
             else
             {
                 transform.position = posicionInicial;

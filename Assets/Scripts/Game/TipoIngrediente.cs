@@ -19,6 +19,8 @@ public enum TipoIngrediente
     Nage,
     Salsa,
     Culantro,
+    CarneEnSarten,
+    PapaEnSarten,
     CarneCocinada,
     PapaCocinada
 }
