@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bb94e1f184dd8942a808ca03453aa8a, type: 3}
-  m_Name: CarneCocinada
+  m_Name: ArrozEnOlla
   m_EditorClassIdentifier: 
   tipo: 19
   prefabCortado: {fileID: 0}
   prefabCocinado: {fileID: 0}
-  prefabListo: {fileID: 0}
+  prefabListo: {fileID: 2893315951573594850, guid: c23a1dbf9aedb99439babb59abcb844c, type: 3}

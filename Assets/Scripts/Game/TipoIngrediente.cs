@@ -21,6 +21,5 @@ public enum TipoIngrediente
     Culantro,
     CarneEnSarten,
     PapaEnSarten,
-    CarneCocinada,
-    PapaCocinada
+    OllaConArroz,
 }

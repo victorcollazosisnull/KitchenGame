@@ -3,10 +3,17 @@ using UnityEngine;
 public class Olla : MonoBehaviour
 {
     public IngredienteData arrozData;
-
+    public Vector3 posicionInicial;
+    private void Awake()
+    {
+        posicionInicial = transform.position;
+    }
     private void Start()
     {
-        if (arrozData.prefabCocinado) arrozData.prefabCocinado.SetActive(false);
+        if (arrozData.prefabCocinado)
+        {
+            arrozData.prefabCocinado.SetActive(false);
+        }
     }
 
     public void Cocinar(IngredienteData data)
