@@ -26,4 +26,13 @@ public enum TipoIngrediente
     Pescado,
     Rocoto,
     AjiLimo,
+    CulantroCeviche,
+    Choclo,
+    Camote,
+    ChocloEnOlla,
+    CamoteEnOlla,
+    OllaConAgua,
+    Exprimidor,
+    Limon,
+    JugoDeLimon
 }

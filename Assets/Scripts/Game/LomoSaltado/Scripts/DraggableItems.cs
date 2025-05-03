@@ -13,7 +13,7 @@ public class DraggableItems : MonoBehaviour
     private Sarten sartenActual;
     private Olla ollaActual;
     private PlateBox plateBoxActual;
-
+    private OllaConAgua ollaConAguaActual;
     private void Start()
     {
         posicionInicial = transform.position;
@@ -42,6 +42,11 @@ public class DraggableItems : MonoBehaviour
             if (data.tipo == TipoIngrediente.Cuchillo)
             {
                 casillaActual.CortarIngrediente();
+                transform.position = posicionInicial;
+            }
+            else if (data.tipo == TipoIngrediente.Exprimidor)
+            {
+                casillaActual.ExprimirIngrediente();
                 transform.position = posicionInicial;
             }
             else
@@ -78,6 +83,23 @@ public class DraggableItems : MonoBehaviour
                 transform.position = posicionInicial;
             }
         }
+        else if (ollaConAguaActual != null)
+        {
+            if (data.tipo == TipoIngrediente.Camote)
+            {
+                ollaConAguaActual.Cocinar(ollaConAguaActual.camoteData);
+                Destroy(gameObject);
+            }
+            else if (data.tipo == TipoIngrediente.Choclo)
+            {
+                ollaConAguaActual.Cocinar(ollaConAguaActual.chocloData);
+                Destroy(gameObject);
+            }
+            else
+            {
+                transform.position = posicionInicial;
+            }
+        }
         else if (plateBoxActual != null)
         {
             plateBoxActual.ColocarEnPlato(data, gameObject);
@@ -96,15 +118,12 @@ public class DraggableItems : MonoBehaviour
     {
         if (other.TryGetComponent(out CombinationBox casilla))
         {
-            if (data.tipo == TipoIngrediente.Cuchillo || !casilla.TieneIngrediente())
-            {
-                estaEnCasilla = true;
-                casillaActual = casilla;
+            estaEnCasilla = true;
+            casillaActual = casilla;
 
-                if (data.tipo != TipoIngrediente.Cuchillo)
-                {
-                    casilla.SetIngrediente(gameObject, data);
-                }
+            if (data.tipo != TipoIngrediente.Cuchillo && data.tipo != TipoIngrediente.Exprimidor && !casilla.TieneIngrediente())
+            {
+                casilla.SetIngrediente(gameObject, data);
             }
         }
 
@@ -117,9 +136,15 @@ public class DraggableItems : MonoBehaviour
         {
             ollaActual = olla;
         }
+
         if (other.TryGetComponent(out PlateBox plateBox))
         {
             plateBoxActual = plateBox;
+        }
+
+        if (other.TryGetComponent(out OllaConAgua ollaAgua))
+        {
+            ollaConAguaActual = ollaAgua;
         }
     }
 
@@ -144,6 +169,10 @@ public class DraggableItems : MonoBehaviour
         if (other.TryGetComponent(out PlateBox plateBox) && plateBox == plateBoxActual)
         {
             plateBoxActual = null;
+        }
+        if (other.TryGetComponent(out OllaConAgua ollaAgua) && ollaAgua == ollaConAguaActual)
+        {
+            ollaConAguaActual = null;
         }
     }
 }

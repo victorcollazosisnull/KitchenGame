@@ -7,4 +7,6 @@ public class IngredienteData : ScriptableObject
     public GameObject prefabCortado;
     public GameObject prefabCocinado;
     public GameObject prefabListo;
+
+    public GameObject prefabExprimido;
 }
