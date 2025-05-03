@@ -31,8 +31,11 @@ public enum TipoIngrediente
     Camote,
     ChocloEnOlla,
     CamoteEnOlla,
+    CamoteCocinado,
     OllaConAgua,
     Exprimidor,
     Limon,
-    JugoDeLimon
+    JugoDeLimon,
+    Licuadora,
+    RocotoCortado
 }

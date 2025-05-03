@@ -26,11 +26,14 @@ public class CombinationBox : MonoBehaviour
     {
         if (ingredienteActual != null && dataIngrediente != null && dataIngrediente.prefabCortado != null)
         {
-            GameObject cortado = Instantiate(dataIngrediente.prefabCortado, transform.position, Quaternion.identity);
-            Destroy(ingredienteActual);
+            if (dataIngrediente.prefabCortado != null)
+            {
+                GameObject cortado = Instantiate(dataIngrediente.prefabCortado, transform.position, Quaternion.identity);
+                Destroy(ingredienteActual);
 
-            ingredienteActual = null;
-            dataIngrediente = null;
+                ingredienteActual = null;
+                dataIngrediente = null;
+            }
         }
     }
     public void ExprimirIngrediente()
@@ -57,5 +60,15 @@ public class CombinationBox : MonoBehaviour
         {
             Debug.Log("No hay nada xd");
         }
+    }
+    public void CocinarIngrediente(IngredienteData data, GameObject original)
+    {
+        if (data.prefabCocinado == null) return;
+
+        GameObject cocinado = Instantiate(data.prefabCocinado, transform.position, Quaternion.identity);
+        cocinado.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+        cocinado.SetActive(true);
+
+        Destroy(original);
     }
 }

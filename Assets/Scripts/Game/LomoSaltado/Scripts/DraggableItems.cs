@@ -14,6 +14,7 @@ public class DraggableItems : MonoBehaviour
     private Olla ollaActual;
     private PlateBox plateBoxActual;
     private OllaConAgua ollaConAguaActual;
+    private Licuadora licuadoraActual;
     private void Start()
     {
         posicionInicial = transform.position;
@@ -48,6 +49,10 @@ public class DraggableItems : MonoBehaviour
             {
                 casillaActual.ExprimirIngrediente();
                 transform.position = posicionInicial;
+            }
+            else if (data.tipo == TipoIngrediente.CamoteEnOlla)
+            {
+                casillaActual.CocinarIngrediente(data, gameObject);
             }
             else
             {
@@ -93,6 +98,18 @@ public class DraggableItems : MonoBehaviour
             else if (data.tipo == TipoIngrediente.Choclo)
             {
                 ollaConAguaActual.Cocinar(ollaConAguaActual.chocloData);
+                Destroy(gameObject);
+            }
+            else
+            {
+                transform.position = posicionInicial;
+            }
+        }
+        else if (licuadoraActual != null)
+        {
+            if (data.tipo == TipoIngrediente.RocotoCortado)
+            {
+                licuadoraActual.Licuar(data);
                 Destroy(gameObject);
             }
             else
@@ -146,6 +163,11 @@ public class DraggableItems : MonoBehaviour
         {
             ollaConAguaActual = ollaAgua;
         }
+
+        if (other.TryGetComponent(out Licuadora licuadora))
+        {
+            licuadoraActual = licuadora;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -173,6 +195,10 @@ public class DraggableItems : MonoBehaviour
         if (other.TryGetComponent(out OllaConAgua ollaAgua) && ollaAgua == ollaConAguaActual)
         {
             ollaConAguaActual = null;
+        }
+        if (other.TryGetComponent(out Licuadora licuadora) && licuadora == licuadoraActual)
+        {
+            licuadoraActual = null;
         }
     }
 }
