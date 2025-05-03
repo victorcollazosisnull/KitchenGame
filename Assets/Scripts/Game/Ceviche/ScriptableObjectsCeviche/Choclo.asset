@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb94e1f184dd8942a808ca03453aa8a, type: 3}
   m_Name: Choclo
   m_EditorClassIdentifier: 
-  tipo: 23
+  tipo: 26
   prefabCortado: {fileID: 0}
   prefabCocinado: {fileID: 5811260857482604241, guid: 01ff689c46a3a8141ad3f3fb974726d4, type: 3}
   prefabListo: {fileID: 0}
+  prefabExprimido: {fileID: 0}
+  prefabLicuado: {fileID: 0}

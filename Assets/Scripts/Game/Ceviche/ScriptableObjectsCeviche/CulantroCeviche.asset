@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb94e1f184dd8942a808ca03453aa8a, type: 3}
   m_Name: CulantroCeviche
   m_EditorClassIdentifier: 
-  tipo: 22
+  tipo: 24
   prefabCortado: {fileID: 1892570213718336610, guid: 0275be419489c8f4f882218cb1adb09e, type: 3}
   prefabCocinado: {fileID: 0}
   prefabListo: {fileID: 0}
+  prefabExprimido: {fileID: 0}
+  prefabLicuado: {fileID: 0}

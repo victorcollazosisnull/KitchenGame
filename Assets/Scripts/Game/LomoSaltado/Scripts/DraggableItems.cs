@@ -13,6 +13,7 @@ public class DraggableItems : MonoBehaviour
     private Sarten sartenActual;
     private Olla ollaActual;
     private PlateBox plateBoxActual;
+    private PlateBoxCeviche PlateBoxCeviche;
     private OllaConAgua ollaConAguaActual;
     private Licuadora licuadoraActual;
     private void Start()
@@ -51,6 +52,10 @@ public class DraggableItems : MonoBehaviour
                 transform.position = posicionInicial;
             }
             else if (data.tipo == TipoIngrediente.CamoteEnOlla)
+            {
+                casillaActual.CocinarIngrediente(data, gameObject);
+            }
+            else if (data.tipo == TipoIngrediente.ChocloEnOlla)
             {
                 casillaActual.CocinarIngrediente(data, gameObject);
             }
@@ -121,6 +126,10 @@ public class DraggableItems : MonoBehaviour
         {
             plateBoxActual.ColocarEnPlato(data, gameObject);
         }
+        else if (PlateBoxCeviche != null)
+        {
+            PlateBoxCeviche.ColocarEnPlato(data, gameObject);
+        }
         else
         {
             transform.position = posicionInicial;
@@ -168,6 +177,11 @@ public class DraggableItems : MonoBehaviour
         {
             licuadoraActual = licuadora;
         }
+
+        if (other.TryGetComponent(out PlateBoxCeviche plateBoxCeviche))
+        {
+            PlateBoxCeviche = plateBoxCeviche;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -188,17 +202,25 @@ public class DraggableItems : MonoBehaviour
         {
             ollaActual = null;
         }
+
         if (other.TryGetComponent(out PlateBox plateBox) && plateBox == plateBoxActual)
         {
             plateBoxActual = null;
         }
+
         if (other.TryGetComponent(out OllaConAgua ollaAgua) && ollaAgua == ollaConAguaActual)
         {
             ollaConAguaActual = null;
         }
+
         if (other.TryGetComponent(out Licuadora licuadora) && licuadora == licuadoraActual)
         {
             licuadoraActual = null;
+        }
+
+        if (other.TryGetComponent(out PlateBoxCeviche plateBoxCeviche) && plateBoxCeviche == PlateBoxCeviche)
+        {
+            PlateBoxCeviche = null;
         }
     }
 }

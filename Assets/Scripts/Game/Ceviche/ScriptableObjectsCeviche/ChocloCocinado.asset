@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bb94e1f184dd8942a808ca03453aa8a, type: 3}
-  m_Name: AjiLimo
+  m_Name: ChocloCocinado
   m_EditorClassIdentifier: 
-  tipo: 22
-  prefabCortado: {fileID: 7749158442289014358, guid: cfe9f089e980d794b90f91298adcaef7, type: 3}
+  tipo: 29
+  prefabCortado: {fileID: 6727043672670774680, guid: 6e7692e454c49d54fa03b395aecb5714, type: 3}
   prefabCocinado: {fileID: 0}
   prefabListo: {fileID: 0}
   prefabExprimido: {fileID: 0}

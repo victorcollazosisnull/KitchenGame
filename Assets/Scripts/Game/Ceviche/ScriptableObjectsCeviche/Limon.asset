@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb94e1f184dd8942a808ca03453aa8a, type: 3}
   m_Name: Limon
   m_EditorClassIdentifier: 
-  tipo: 29
+  tipo: 34
   prefabCortado: {fileID: 0}
   prefabCocinado: {fileID: 0}
   prefabListo: {fileID: 0}
   prefabExprimido: {fileID: 5134531551788812523, guid: 421dd3479830ab14d9f1458c85a36795, type: 3}
+  prefabLicuado: {fileID: 0}

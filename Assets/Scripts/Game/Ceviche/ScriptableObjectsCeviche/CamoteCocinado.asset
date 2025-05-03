@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb94e1f184dd8942a808ca03453aa8a, type: 3}
   m_Name: CamoteCocinado
   m_EditorClassIdentifier: 
-  tipo: 27
+  tipo: 31
   prefabCortado: {fileID: 4916105549263189527, guid: 6a6627ff2d553ec4b8aa85ba73c4d864, type: 3}
   prefabCocinado: {fileID: 0}
   prefabListo: {fileID: 0}

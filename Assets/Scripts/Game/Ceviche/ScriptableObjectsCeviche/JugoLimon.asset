@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb94e1f184dd8942a808ca03453aa8a, type: 3}
   m_Name: JugoLimon
   m_EditorClassIdentifier: 
-  tipo: 30
+  tipo: 39
   prefabCortado: {fileID: 0}
   prefabCocinado: {fileID: 0}
   prefabListo: {fileID: 0}
   prefabExprimido: {fileID: 0}
+  prefabLicuado: {fileID: 0}

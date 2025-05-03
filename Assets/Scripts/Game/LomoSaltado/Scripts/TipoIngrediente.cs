@@ -24,12 +24,16 @@ public enum TipoIngrediente
     OllaConArroz,
     //CEVICHE
     Pescado,
+    PescadoPicado,
     Rocoto,
     AjiLimo,
+    AjiLimoPicado,
     CulantroCeviche,
+    CulantroPicado,
     Choclo,
     Camote,
     ChocloEnOlla,
+    ChocloCocinado,
     CamoteEnOlla,
     CamoteCocinado,
     OllaConAgua,
@@ -37,5 +41,10 @@ public enum TipoIngrediente
     Limon,
     JugoDeLimon,
     Licuadora,
-    RocotoCortado
+    RocotoCortado,
+    PastaRocoto,
+    JugoLimon,
+    GranosChoclo,
+    RodajasCamote,
+    Sal
 }
