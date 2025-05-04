@@ -5,13 +5,13 @@ using UnityEngine;
 public class DialogueCuySO : DialogueSO
 {
     [Header("AnimationState")]
-    [SerializeField] private StateCuy StateAnimator;
+    [SerializeField] private StateCuy stateAnimator;
+    public StateCuy StateAnimator => stateAnimator;
 
     public override void StartDialogues(TMP_Text text, Entity runner, Action onFinish = null)
     {
         base.StartDialogues(text, runner, onFinish);
         CuyController cuy = runner as CuyController;
-
     }
 }
 public enum StateCuy
