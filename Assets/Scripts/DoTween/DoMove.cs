@@ -56,6 +56,12 @@ public class DoMove : MonoBehaviour
     {
         currentTween?.Kill();
     }
+    public Vector2 GetAnchoredPosition()
+    {
+        return optionMove == OptionMove.RectTransform
+            ? targetRectTransform.anchoredPosition
+            : (Vector2)targetTransform.position;
+    }
 }
 
 

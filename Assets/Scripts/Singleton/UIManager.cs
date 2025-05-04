@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 public class UIManager : MonoBehaviour
 {
     static public UIManager Instance;
@@ -8,11 +9,8 @@ public class UIManager : MonoBehaviour
     [Header("Fade")]
     [SerializeField] private Image imageFade;
 
-    [Header("Barrido")]
-    [SerializeField] private Image imageBarridoUp;
-    [SerializeField] private Image imageBarridoLeft;
-    [SerializeField] private Image imageBarridoRight;
-    [SerializeField] private Image imageBarridoDown;
+    [Header("Scanning")]
+    [SerializeField] private BarridoController scanning;
 
     [Header("Scenes")]
     public GameObject menu;
@@ -27,6 +25,26 @@ public class UIManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
+        }
+    }
+    public void StartScanningEnter(Action onComplete)
+    {
+        scanning.ScanningEnter(onComplete);
+    }
+    public void StartScaningExit()
+    {
+        scanning.ScanningExit();
+    }
+    public void UpdateUI(string scene)
+    {
+        switch(scene)
+        {
+            case"Menu":
+
+                break;
+            case"Introduccion":
+                menu.SetActive(false);
+                break;
         }
     }
     public void StartFadeIn(float duration)
