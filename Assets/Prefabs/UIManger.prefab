@@ -726,7 +726,7 @@ GameObject:
   - component: {fileID: 1805655259477603445}
   - component: {fileID: 8830412537541060932}
   - component: {fileID: 3919656082693744917}
-  - component: {fileID: 571289300501981543}
+  - component: {fileID: 3364084489839797735}
   m_Layer: 5
   m_Name: Ajustes
   m_TagString: Untagged
@@ -836,7 +836,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &571289300501981543
+--- !u!114 &3364084489839797735
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -845,11 +845,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5016053467933479940}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcf26829e5a42ea4bbf81b3936fef1ae, type: 3}
+  m_Script: {fileID: 11500000, guid: ab21aa6969f9d1e498786e0963348623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enlargedScale: {x: 4, y: 4, z: 4}
   newColor: {r: 1, g: 1, b: 1, a: 1}
+  scene: Menu
 --- !u!1 &5724090514356138929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,7 +1241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c225c94e0c4d94fadc01969e0864e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageFade: {fileID: 0}
+  imageFade: {fileID: 6463548250167003728}
   scanning: {fileID: 7728781771497755203}
   menu: {fileID: 7802094713746527192}
 --- !u!114 &7728781771497755203
@@ -1259,6 +1260,7 @@ MonoBehaviour:
   imageBarridoLeft: {fileID: 5675888096958621291}
   imageBarridoRight: {fileID: 2852859824776205024}
   imageBarridoDown: {fileID: 8729767842469779424}
+  timeScaning: 0.8
 --- !u!1 &7399055640980099494
 GameObject:
   m_ObjectHideFlags: 0

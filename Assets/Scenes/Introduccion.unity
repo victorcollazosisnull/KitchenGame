@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &218237553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &750966384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +293,10 @@ PrefabInstance:
     - target: {fileID: 2692625403505795998, guid: 76be577e9cdb3cc42acaf1f154274ae3, type: 3}
       propertyPath: m_Name
       value: Cuy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692625403505795998, guid: 76be577e9cdb3cc42acaf1f154274ae3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4434386006645045372, guid: 76be577e9cdb3cc42acaf1f154274ae3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -479,7 +483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1392978934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,6 +571,10 @@ PrefabInstance:
     - target: {fileID: 2692625403505795998, guid: 4e12f31bc35362b41b5da9cb5de1a8d9, type: 3}
       propertyPath: m_Name
       value: Marck
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692625403505795998, guid: 4e12f31bc35362b41b5da9cb5de1a8d9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4434386006645045372, guid: 4e12f31bc35362b41b5da9cb5de1a8d9, type: 3}
       propertyPath: m_LocalPosition.x

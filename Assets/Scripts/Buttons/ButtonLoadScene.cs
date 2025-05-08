@@ -6,16 +6,24 @@ public class ButtonLoadScene : MyButton
     [SerializeField] private string scene;
     protected override void OnClick()
     {
-        StartScaningLoadScene();
+        if (interative)
+        {
+            StartScaningLoadScene();
+            interative = false;
+        }
     }
     private void StartScaningLoadScene()
     {
-        UIManager.Instance.UpdateUI(scene);
         UIManager.Instance.StartScanningEnter(LoadScene);
     }
     private void LoadScene()
     {
-        UIManager.Instance.StartScaningExit();
+        UIManager.Instance.UpdateUI(scene);
+        UIManager.Instance.StartScaningExit(ResetValue);
         SceneManager.LoadScene(scene);
+    }
+    private void ResetValue()
+    {
+        interative = true;
     }
 }

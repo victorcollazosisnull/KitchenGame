@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 
 abstract public class MyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    static protected bool interative = true;
     protected Button button;
     protected Image image;
     [SerializeField] protected Vector3 enlargedScale;

@@ -31,9 +31,9 @@ public class UIManager : MonoBehaviour
     {
         scanning.ScanningEnter(onComplete);
     }
-    public void StartScaningExit()
+    public void StartScaningExit(Action onComplete)
     {
-        scanning.ScanningExit();
+        scanning.ScanningExit(onComplete);
     }
     public void UpdateUI(string scene)
     {
